@@ -10,11 +10,12 @@ datasource db {
     url      = env("DATABASE_URL")
 }
 
-model Post {
+model Todos {
     id        Int      @id @default(autoincrement())
-    name      String
+    title     String
+    completed Boolean   @default(false)
+
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
-
-    @@index([name])
+    @@map("todos")
 }
